@@ -1,5 +1,5 @@
 server:
-  port: 9091
+  port: ${port:9091}
 
 spring:
   datasource:
@@ -16,3 +16,11 @@ eureka:
   client:
     service-url:
       defaultZone: http://127.0.0.1:10086/eureka
+  instance:
+    #更倾向使用ip地址，而不是host名
+    prefer-ip-address: true
+    ip-address: 127.0.0.1
+    #服务失效时间，单位s/秒，默认90
+    lease-expiration-duration-in-seconds: 15
+    #续约时间，默认30
+    lease-renewal-interval-in-seconds: 5
